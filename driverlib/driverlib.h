@@ -10,3 +10,4 @@
 #include "hw_memmap.h"
 
 #include "msp430f149_gpio.h"
+#include "msp430f149_wdt.h"
