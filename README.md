@@ -1,4 +1,4 @@
-# MSP430F149DriverLib
+﻿# MSP430F149DriverLib
 仿照MSP430 Ware DriverLib写的库文件，方便大家开发嘛。希望大家喜欢
 # File Struct
 msp430f149DriverLibDocument.docx</br>
@@ -22,5 +22,6 @@ msp430f149_uasrt_uart.c</br>
 msp430f149_uasrt_uart.h</br>
 msp430f149_uasrt_spi.c</br>
 msp430f149_uasrt_spi.h</br>
+driverlib.h</br>
 /driverlib/inc
-hw_memmap.h
+hw_memmap.h</br>
