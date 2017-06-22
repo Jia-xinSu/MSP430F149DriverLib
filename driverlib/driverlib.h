@@ -7,4 +7,6 @@
  *希望飞院电子设计大赛越走越远
  */
 
+#include "hw_memmap.h"
+
 #include "msp430f149_gpio.h"
