@@ -19,7 +19,8 @@ extern "C"
 
 /*
  *@brif: 定义WDT的时钟源
- *@functions:  WDT_resetTimer
+ *@functions:  WDT_initAsIntervalTimer
+ *             WDT_initAsWatchDogTimer
  *@{
  */
 #define WDT_SOURCE_ACLK                   ((uint16_t)0x0004) /*!<选择ACLK作为时钟源*/
@@ -30,7 +31,8 @@ extern "C"
 
 /*
  *@brif: 定义WDT的时钟源
- *@functions:  WDT_resetTimer
+ *@functions:  WDT_initAsIntervalTimer
+ *             WDT_initAsWatchDogTimer
  *@{
  */
 #define WDT_CLOCKDIVIDER_32768            ((uint16_t)0x0000) /*!<时钟源分频/32768*/

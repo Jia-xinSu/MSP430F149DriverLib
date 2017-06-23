@@ -6,27 +6,13 @@
  *@param：无
  *@retval：无
  */
-/*
 #pragma vector=NMI_VECTOR
 __interrupt
 void NMI_ISR(void)
 {
-  
+
 }
-*/
-/**
- *@brif：处理RESET中断
- *@param：无
- *@retval：无
- */
-/*
-#pragma vector=RESET_VECTOR
-__interrupt
-void RESET_ISR(void)
-{
-  
-}
-*/
+
 /*
  *@attention：  可使用的中断向量有
  *  \vct  PORT2_VECTOR
