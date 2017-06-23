@@ -150,7 +150,7 @@ typedef enum{
 /*Functions-------------------------------------------------------------*/
 
 /**
- *@brif:设置GPIO口位输出模式
+ *@brief:设置GPIO口位输出模式
  *@param： GPIO_Port_x选择设置的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -173,7 +173,7 @@ typedef enum{
 extern void GPIO_setAsOutputPin(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 
 /**
- *@brif:设置GPIO口位输入模式
+ *@brief:设置GPIO口位输入模式
  *@param： GPIO_Port_x选择设置的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -196,7 +196,7 @@ extern void GPIO_setAsOutputPin(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 extern void GPIO_setAsInputPin(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 
 /**
- *@brif:清除GPIO中P1,P2上的中断标志位
+ *@brief:清除GPIO中P1,P2上的中断标志位
  *@param： GPIO_Port_x选择需要清除标志位的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -214,7 +214,7 @@ extern void GPIO_setAsInputPin(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
  */
 extern void GPIO_clearInierrupt(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 /**
- *@brif:允许GPIO中断
+ *@brief:允许GPIO中断
  *@param： 允许产生中断信号的GPIO口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -233,7 +233,7 @@ extern void GPIO_clearInierrupt(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 extern void GPIO_enableInterrupt(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 
 /**
- *@brif:禁止GPIO中断
+ *@brief:禁止GPIO中断
  *@param： GPIO_Port_x禁止产生中断信号的GPIO口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -252,7 +252,7 @@ extern void GPIO_enableInterrupt(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 extern void GPIO_disableInterrupt(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 
 /**
- *@brif:读GPIO管脚对应值
+ *@brief:读GPIO管脚对应值
  *@param： GPIO_Port_x选择要读的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -276,7 +276,7 @@ extern void GPIO_disableInterrupt(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 extern uint8_t GPIO_getInputPinValue(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 
 /**
- *@brif:设置GPIO输出为高电平
+ *@brief:设置GPIO输出为高电平
  *@param： GPIO_Port_x选择设置的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -299,7 +299,7 @@ extern uint8_t GPIO_getInputPinValue(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 extern void GPIO_setOutputHighOnPin(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 
 /**
- *@brif:设置GPIO输出为低电平
+ *@brief:设置GPIO输出为低电平
  *@param： GPIO_Port_x选择设置的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -322,7 +322,7 @@ extern void GPIO_setOutputHighOnPin(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 extern void GPIO_setOutputLowOnPin(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 
 /**
- *@brif:设置GPIO一组Port口的值
+ *@brief:设置GPIO一组Port口的值
  *@param： GPIO_Port_x选择设置的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -336,7 +336,7 @@ extern void GPIO_setOutputLowOnPin(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 extern void GPIO_writePort(uint8_t GPIO_Port_x,uint8_t Value);
 
 /**
- *@brif:读取GPIO一组Port口的输入值
+ *@brief:读取GPIO一组Port口的输入值
  *@param： GPIO_Port_x选择读取的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -349,7 +349,7 @@ extern void GPIO_writePort(uint8_t GPIO_Port_x,uint8_t Value);
 extern uint8_t GPIO_getPortInputValue(uint8_t GPIO_Port_x);
 
 /**
- *@brif:设置GPIO输出取反
+ *@brief:设置GPIO输出取反
  *@param： GPIO_Port_x选择设置的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -372,7 +372,7 @@ extern uint8_t GPIO_getPortInputValue(uint8_t GPIO_Port_x);
 extern void GPIO_toggleOutputOnPin(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 
 /**
- *@brif:设置GPIO为特殊功能口，输出模式
+ *@brief:设置GPIO为特殊功能口，输出模式
  *@param： GPIO_Port_x选择设置的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -395,7 +395,7 @@ extern void GPIO_toggleOutputOnPin(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 extern void GPIO_setAsPeripheralModuleFunctionOutputPin(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x);
 
 /**
- *@brif:设置GPIO为特殊功能口，输入模式
+ *@brief:设置GPIO为特殊功能口，输入模式
  *@param： GPIO_Port_x选择设置的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2
@@ -440,7 +440,7 @@ extern void GPIO_setAsPeripheralModuleFunctionInputPin(uint8_t GPIO_Port_x,uint8
 extern void GPIO_selectInterruptEdge(uint8_t GPIO_Port_x,uint8_t GPIO_Pin_x,GPIO_interruptEdge GPIO_A_TO_B_TRANSITION);
 
 /**
- *@brif: 获取选中管脚的中断状态
+ *@brief: 获取选中管脚的中断状态
  *@param： GPIO_Port_x选择设置的Port口
  *  \arg  GPIO_Port_1
  *        GPIO_Port_2

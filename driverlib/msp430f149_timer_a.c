@@ -16,12 +16,12 @@ static const uint16_t TIMER_A_getTACCRxAddress[]={
 
 void TIMER_A_start_Counter(uint16_t TIMER_A_x_MODE)
 {
-  TACTL=(TACTL&(0xffcf))+TIMER_A_x_MODE;
+  TACTL=(TACTL&(0xffcf)+TIMER_A_x_MODE;
 }
 
 void TIMER_A_init(TIMER_A_initTypedef TIMER_A_initParam)
 {
-  TACTL=(TACTL&0xfffe)+ \
+  TACTL=(TACTL&0x0001)+ \
   	    TIMER_A_initParam.clockSource+ \
   	    TIMER_A_initParam.clockSourceDivider+ \
   	    TIMER_A_initParam.timerClear+ \

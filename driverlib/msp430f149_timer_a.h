@@ -153,6 +153,7 @@ typedef struct
 {
   uint8_t compareRegister;
   uint16_t compareInterruptEnable;
+  
 }TIMER_A_initCCRCompareModeTypedef;
 /*
  *@}
