@@ -59,8 +59,8 @@ extern "C"
  *@brif: 定义TimerA是否允许中断
  *@{
  */
-#define TIMER_A_ENABLE_INTERRUPT           ((uint16_t)0x0000)/*!<允许TA中断*/
-#define TIMER_A_DISABLE_INTERRUPT          ((uint16_t)0x0002)/*!<禁止TA中断*/
+#define TIMER_A_ENABLE_INTERRUPT           ((uint16_t)0x0002)/*!<允许TA中断*/
+#define TIMER_A_DISABLE_INTERRUPT          ((uint16_t)0x0000)/*!<禁止TA中断*/
 /*
  *@}
   */
@@ -150,6 +150,49 @@ typedef struct
   */
 
 /*
+ *@brief: 定义TimerA Up模式的初始化结构体
+ *@member clockSource时钟源，可选以下合法参数
+ *  \arg  TIMER_A_SOURCE_TACLK
+ *        TIMER_A_SOURCE_ACLK
+ *        TIMER_A_SOURCE_SMCLK
+ *        TIMER_A_SOURCE_INCLK
+ *@member clockSourceDivider 选择时钟分频，可选以下合法参数
+ *  \arg  TIMER_A_DIVIDER_1
+ *        TIMER_A_DIVIDER_2
+ *        TIMER_A_DIVIDER_4
+ *        TIMER_A_DIVIDER_8
+ *@member timerInterruptEnable 是否允许TA中断，可选以下合法参数
+ *  \arg  TIMER_A_ENABLE_INTERRUPT
+ *        TIMER_A_DISABLE_INTERRUPT
+ *@member captureCompareInterruptEnable0 CCR0中断是否允许
+ *  \arg  TIMER_A_CCR_ENABLE_INTERRUPT
+ *        TIMER_A_CCR_DISABLE_INTERRUPT
+ *@member timerPeriod定义Up模式周期
+ *@member timerClear 是否清零TimerA，可选以下合法参数
+ *  \arg  TIMER_A_CLEAR
+ *        TIMER_A_DONT_CLEAR
+ *@member Timer_A_x_START TimerA是否启动，可选择以下参数
+ *  \arg  TIMER_A_START
+ *        TIMER_A_NOT_START
+ *for function:  
+ *@{
+ */
+typedef struct
+{
+  uint16_t clockSource;
+  uint16_t clockSourceDivider;
+  uint16_t timerInterruptEnable;
+  uint16_t captureCompareInterruptEnable0;
+  uint16_t timerPeriod;
+  uint16_t timerClear;
+  Timer_A_startTpydef timerStart;
+}Timer_A_initAsUpModeTypedef;
+/*
+ *@}
+  */
+
+
+/*
  *@brif: 定义TimerACCR比较模式的初始化参数
  *@member：compareRegister选择初始化的CCR寄存器，可选以下合法值
  *  \arg  TIMER_A_CCR0
@@ -193,6 +236,15 @@ extern void TIMER_A_start_Counter(uint16_t TIMER_A_x_MODE);
  */
 
 extern void Timer_A_initAsContinuousMode(Timer_A_initAsContinuousModeTypedef Timer_A_initAsContinuousModeParam);
+
+/**
+  *@brief：初始化TimerA位上升计数模式
+  *@param:Timer_A_initAsUpModeParam TimerA上升模式的初始化参数
+  *  \arg:Timer_A_initAsUpModeTypedef类型变量
+  *@retval:None
+  */
+extern void Timer_A_initAsUpMode(Timer_A_initAsUpModeTypedef Timer_A_initAsUpModeParam);
+
 
 #ifdef __cplusplus
 }
