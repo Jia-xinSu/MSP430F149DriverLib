@@ -96,16 +96,25 @@ extern "C"
  *@}
   */
 
+/*Enumeration-----------------------------------------------------------*/
+
+/*
+ *@brief:Timer是否在初始化时启动
+ *{
+ */
+typedef enum
+{
+  TIMER_A_START,
+  TIMER_A_NOT_START,
+}Timer_A_startTpydef;
+/*
+ *@}
+ */
 
 /*Struct----------------------------------------------------------------*/
 
 /*
- *@brif: 定义TimerA的初始化参数结构体
- *@member timerMode时钟运行模式，可选以下合法参数
- *  \arg  TIMER_A_STOP_MODE
- *        TIMER_A_UP_MODE
- *        TIMER_A_CONTINUOUS_MODE
- *        TIMER_A_UPDOWN_MODE
+ *@brief: 定义TimerA Continuous模式的初始化结构体
  *@member clockSource时钟源，可选以下合法参数
  *  \arg  TIMER_A_SOURCE_TACLK
  *        TIMER_A_SOURCE_ACLK
@@ -122,17 +131,20 @@ extern "C"
  *@member timerClear 是否清零TimerA，可选以下合法参数
  *  \arg  TIMER_A_CLEAR
  *        TIMER_A_DONT_CLEAR
- *for function:  TIMER_A_init
+ *@member Timer_A_x_START TimerA是否启动，可选择以下参数
+ *  \arg  TIMER_A_START
+ *        TIMER_A_NOT_START
+ *for function:  
  *@{
  */
 typedef struct
 {
-  uint16_t timerMode;
   uint16_t clockSource;
   uint16_t clockSourceDivider;
   uint16_t timerInterruptEnable;
   uint16_t timerClear;
-}TIMER_A_initTypedef;
+  Timer_A_startTpydef timerStart;
+}Timer_A_initAsContinuousModeTypedef;
 /*
  *@}
   */
@@ -153,16 +165,16 @@ typedef struct
 {
   uint8_t compareRegister;
   uint16_t compareInterruptEnable;
-  
 }TIMER_A_initCCRCompareModeTypedef;
 /*
  *@}
   */
+  
 
 /*Functions-------------------------------------------------------------*/
 
 /**
- *@brif: 启动TimerA，选择TimerA的启动模式
+ *@brief: 启动TimerA，选择TimerA的启动模式
  *       假设你已经对时钟进行过初始化
  *@param：TIMER_A_x_MODE TimerA的启动模式,可选择以下合法参数
  *  \arg  TIMER_A_STOP_MODE
@@ -174,12 +186,13 @@ typedef struct
 extern void TIMER_A_start_Counter(uint16_t TIMER_A_x_MODE);
 
 /**
- *@brif: 初始化TimerA
- *@param：TIMER_A_initParam TimerA的初始化参数
- *  \arg TIMER_A_initTypedef 类型
+ *@brief: 初始化TimerA为连续计数模式
+ *@param：Timer_A_initAsContinuousModeParam TimerA连续计数的初始化参数
+ *  \arg  Timer_A_initAsContinuousModeTypedef类型变量
  *@retval：None
  */
-extern void TIMER_A_init(TIMER_A_initTypedef TIMER_A_initParam);
+
+extern void Timer_A_initAsContinuousMode(Timer_A_initAsContinuousModeTypedef Timer_A_initAsContinuousModeParam);
 
 #ifdef __cplusplus
 }

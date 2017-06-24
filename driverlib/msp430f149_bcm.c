@@ -4,6 +4,8 @@
 static uint32_t privateXT1ClockFrequency = 0;
 static uint32_t privateXT2ClockFrequency = 0;
 
+volatile unsigned int privateI=0;
+
 void BCM_setExternalClockSource(uint32_t XT1CLK_frequency,uint32_t XT2CLK_frequency)
 {
   privateXT1ClockFrequency=XT1CLK_frequency;
@@ -12,19 +14,24 @@ void BCM_setExternalClockSource(uint32_t XT1CLK_frequency,uint32_t XT2CLK_freque
 
 void BCM_initMCLKSignal(uint8_t BCM_MCLK_SOURCE_x,uint8_t BCM_DIVIDER_x)
 {
-  uint8_t newBCSCTL2=(BCSCTL2&0x0f)|BCM_MCLK_SOURCE_x|(BCM_DIVIDER_x<<BCM_OFSB_DIVM);
+  uint8_t newBCSCTL2=(BCSCTL2&0x0f)+ \
+                     BCM_MCLK_SOURCE_x+ \
+                     (uint8_t)((BCM_DIVIDER_x<<BCM_OFSB_DIVM)&0xff);
   BCSCTL2=newBCSCTL2;
 }
 
 void BCM_initSMCLKSignal(uint8_t BCM_SMCLK_SOURCE_x,uint8_t BCM_DIVIDER_x)
 {
-  uint8_t newBCSCTL2=(BCSCTL2&0xf1)|BCM_SMCLK_SOURCE_x|(BCM_DIVIDER_x<<BCM_OFSB_DIVS);
+  uint8_t newBCSCTL2=(BCSCTL2&0xf1)+ \
+  	                 BCM_SMCLK_SOURCE_x+ \
+  	                 (uint8_t)((BCM_DIVIDER_x<<BCM_OFSB_DIVS)&0xff);
   BCSCTL2=newBCSCTL2;
 }
 
 void BCM_iniACLKSignal(uint8_t BCM_DIVIDER_x)
 {
-  uint8_t newBCSCTL1=(BCSCTL1&0xcf)|(BCM_DIVIDER_x<<BCM_OFSB_DIVA);
+  uint8_t newBCSCTL1=(BCSCTL1&0xcf)+ \
+                     (uint8_t)((BCM_DIVIDER_x<<BCM_OFSB_DIVA)&0xff);
   BCSCTL1 = newBCSCTL1;
 }
 
@@ -34,6 +41,7 @@ void BCM_turnOnXT2(void)
   do
   {
     IFG1&=~OFIFG;
+	for(privateI=0x00;privateI>0;privateI--);
   }
   while(IFG1&OFIFG);
 }
@@ -44,6 +52,7 @@ void BCM_turnOnXT2WithTimeout(uint32_t timeout)
   do
   {
     IFG1&=~OFIFG;
+	for(privateI=0xff;privateI>0;privateI--);
 	timeout--;
   }
   while((IFG1&OFIFG)&&(timeout>0));

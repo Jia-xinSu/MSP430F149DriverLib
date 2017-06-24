@@ -16,20 +16,19 @@ static const uint16_t TIMER_A_getTACCRxAddress[]={
 
 void TIMER_A_start_Counter(uint16_t TIMER_A_x_MODE)
 {
-  TACTL=(TACTL&(0xffcf)+TIMER_A_x_MODE;
+  TACTL=(TACTL&(0xffcf))+TIMER_A_x_MODE;
 }
 
-void TIMER_A_init(TIMER_A_initTypedef TIMER_A_initParam)
+void Timer_A_initAsContinuousMode(Timer_A_initAsContinuousModeTypedef Timer_A_initAsContinuousModeParam)
 {
-  TACTL=(TACTL&0x0001)+ \
-  	    TIMER_A_initParam.clockSource+ \
-  	    TIMER_A_initParam.clockSourceDivider+ \
-  	    TIMER_A_initParam.timerClear+ \
-  	    TIMER_A_initParam.timerInterruptEnable+ \
-  	    TIMER_A_initParam.timerMode;
-}
-
-void TIMER_A_initCompera(TIMER_A_initCCRCompareModeTypedef TIMER_A_initCCRCompareModeParam)
-{
-
+  uint16_t newTACTL=(TACTL&0xfc09)+ \
+  	       Timer_A_initAsContinuousModeParam.clockSource+ \
+  	       Timer_A_initAsContinuousModeParam.clockSourceDivider+ \
+  	       Timer_A_initAsContinuousModeParam.timerClear+ \
+  	       Timer_A_initAsContinuousModeParam.timerInterruptEnable;
+  if(Timer_A_initAsContinuousModeParam.timerStart==TIMER_A_START)
+  {
+    newTACTL|=TIMER_A_CONTINUOUS_MODE;
+  }
+  TACTL=newTACTL;
 }

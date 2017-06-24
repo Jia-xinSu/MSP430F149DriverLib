@@ -1,5 +1,8 @@
 
 #include "msp430f149_it.h"
+#include "driverlib.h"
+
+static uint8_t privateII=0;
 
 /**
  *@brif：处理NMU中断
@@ -43,4 +46,20 @@ void NMI_ISR(void)
  *}
  */
 
- 
+ /**
+ *@brif：处理TIMERA0_VECTOR中断
+ *@param：无
+ *@retval：无
+ */
+
+#pragma vector=TIMERA0_VECTOR
+__interrupt
+void TimerA0_ISR(void)
+{
+  privateII++;
+  if(privateII==16)
+  {
+  GPIO_toggleOutputOnPin( GPIO_Port_6, GPIO_Pin_0);
+  privateII=0;
+  }
+}

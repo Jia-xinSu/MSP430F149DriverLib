@@ -137,7 +137,7 @@ extern "C"
 /*Enumeration-----------------------------------------------------------*/
 
 /*
- *@brif GPIO_LOW_TO_HIGH_TRANSITION上升沿与
+ *@brief GPIO_LOW_TO_HIGH_TRANSITION上升沿与
  *      GPIO_HIGH_TO_LOW_TRANSITION下降沿的枚举
  *@for functions: GPIO_selectInterruptEdge
  */
