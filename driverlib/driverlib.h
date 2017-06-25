@@ -13,4 +13,5 @@
 #include "msp430f149_wdt.h"
 #include "msp430f149_it.h"
 #include "msp430f149_bcm.h"
+#include "msp430f149_adc12.h"
 #include "msp430f149_timer_a.h"
