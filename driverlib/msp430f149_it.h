@@ -8,6 +8,7 @@ extern "C"
 #endif
   
 #include "driverlib.h"
+extern uint8_t isKeyPressed;
 
 #ifdef __cplusplus
 }

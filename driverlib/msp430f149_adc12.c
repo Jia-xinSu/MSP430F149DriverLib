@@ -39,7 +39,77 @@ void ADC12_disableSamplingTimer(void)
   ADC12CTL1&=~SHP;
 }
 
-ADC12_configureMemory()
+void ADC12_configureMemory(ADC12_configureMemoryTypeDef ADC12_configureMemoryParam)
 {
-  
+  assert(!(ADC12CTL0&ENC))
+  if(!(ADC12CTL0&ENC))
+   {
+     HWREG8(0x0080+ADC12_configureMemoryParam.memoryBufferControlIndex)= \
+  	  ADC12_configureMemoryParam.endOfSequence+ \
+  	  ADC12_configureMemoryParam.inputSourceSelect+ \
+  	  ADC12_configureMemoryParam.negativeRefVoltageSourceSelect+ \
+  	  ADC12_configureMemoryParam.positiveRefVoltageSourceSelect;
+  	}
+}
+
+void ADC12_enableInterrupt(uint16_t ADC12_interruptEnable,uint16_t ADC12_overflowInterruptEnable)
+{
+  ADC12IE|=ADC12_interruptEnable;
+  ADC12CTL0=ADC12CTL0&(0xfff3)+ADC12_overflowInterruptEnable;
+}
+
+void ADC12_disableInterrupt(uint16_t ADC12_interruptEnable,uint16_t ADC12_overflowInterruptEnable)
+{
+  TA12IE&=~ADC12_interruptEnable;
+  ADC12CTL0&=ADC12_overflowInterruptEnable;
+}
+
+void ADC12_clearInterrupt(uint16_t ADC12_interruptFlag)
+{
+  ADC12IFG&=~ADC12_interruptFlag;
+}
+
+uint16_t ADC12_getInerruptStatus(uint16_t ADC12_interruptFlag)
+{
+  return(ADC12IFG&ADC12_interruptFlag);
+}
+
+void ADC12_startConversion(uint16_t startMemoryBufferIndex,uint16_t conversionSequenceModeSelect)
+{
+  ADC12CTL0&=~ENC;
+  ADC12CTL1=(ADC12CTL1&0x0ff9)+ \
+  	        (uint16_t)((startMemoryBufferIndex<<12)&0xf000)+ \
+  	        conversionSequenceModeSelect;
+  ADC12CTL|=ENC+ADC12SC;
+}
+
+void ADC12_disableConversion(preemptTypedef ADC12_xCONVERSION)
+{
+  if(ADC12_xCONVERSION==ADC12_PREEMPTCONVERSION)
+  {
+    ADC12CTL1&=~ADC12CONSEQ_3;
+  }
+  else if(~ADC12CTL1&ADC12CONSEQ_3)
+  {
+    while(ADC12_isBusy())
+    {
+      ;
+    }
+  }
+}
+
+uint16_t ADC12_isBusy(void)
+{
+  return (ADC12CTL1&ADC12BUSY);
+}
+
+uint16_t ADC12_getResults(uint16_t memoryBufferControlIndex)
+{
+  return(HWREG16(0x0140+2*memoryBufferControlIndex));
+}
+
+void ADC12_setSampleHoldSignalInversion(uint16_t invertedSignal)
+{
+  ADC12CTL1&=~ADC12ISSH;
+  ADC12CTL1|=invertedSignal;
 }
