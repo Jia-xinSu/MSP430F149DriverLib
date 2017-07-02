@@ -2,6 +2,8 @@
 #include "msp430f149_it.h"
 #include "driverlib.h"
 
+uint16_t adcResult=0;
+
 /**
  *@brif：处理NMU中断
  *@param：无
@@ -13,6 +15,21 @@ void NMI_ISR(void)
 {
 
 }
+
+
+#pragma vector=ADC12_VECTOR
+__interrupt
+void ADC12_ISR(void)
+{
+  switch(_even_in_range(ADC12IV, 44))
+  {
+  case ADC12IV_ADC12IFG0:
+  	adcResult=ADC12_getResults(0);
+	ADC12_clearInterrupt( ADC12_IE_0);
+	break;
+  }
+}
+
 
 /*
  *@attention：  可使用的中断向量有

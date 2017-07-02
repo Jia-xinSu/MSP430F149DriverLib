@@ -1,5 +1,5 @@
 #include "msp430f149_adc12.h"
-
+#include "assert.h"
 void ADC12_init(ADC12_initTypedef ADC12_initParam)
 {
   ADC12CTL0&=~ENC;
@@ -41,7 +41,7 @@ void ADC12_disableSamplingTimer(void)
 
 void ADC12_configureMemory(ADC12_configureMemoryTypeDef ADC12_configureMemoryParam)
 {
-  assert(!(ADC12CTL0&ENC))
+  assert(!(ADC12CTL0&ENC));
   if(!(ADC12CTL0&ENC))
    {
      HWREG8(0x0080+ADC12_configureMemoryParam.memoryBufferControlIndex)= \
@@ -60,7 +60,7 @@ void ADC12_enableInterrupt(uint16_t ADC12_interruptEnable,uint16_t ADC12_overflo
 
 void ADC12_disableInterrupt(uint16_t ADC12_interruptEnable,uint16_t ADC12_overflowInterruptEnable)
 {
-  TA12IE&=~ADC12_interruptEnable;
+  ADC12IE&=~ADC12_interruptEnable;
   ADC12CTL0&=ADC12_overflowInterruptEnable;
 }
 
@@ -80,20 +80,20 @@ void ADC12_startConversion(uint16_t startMemoryBufferIndex,uint16_t conversionSe
   ADC12CTL1=(ADC12CTL1&0x0ff9)+ \
   	        (uint16_t)((startMemoryBufferIndex<<12)&0xf000)+ \
   	        conversionSequenceModeSelect;
-  ADC12CTL|=ENC+ADC12SC;
+  ADC12CTL0|=ENC+ADC12SC;
 }
 
 void ADC12_disableConversion(preemptTypedef ADC12_xCONVERSION)
 {
   if(ADC12_xCONVERSION==ADC12_PREEMPTCONVERSION)
   {
-    ADC12CTL1&=~ADC12CONSEQ_3;
+    ADC12CTL1&=~CONSEQ_3;
   }
-  else if(~ADC12CTL1&ADC12CONSEQ_3)
+  else if(~ADC12CTL1&CONSEQ_3)
   {
     while(ADC12_isBusy())
     {
-      ;
+      __no_operation();
     }
   }
 }
@@ -110,6 +110,6 @@ uint16_t ADC12_getResults(uint16_t memoryBufferControlIndex)
 
 void ADC12_setSampleHoldSignalInversion(uint16_t invertedSignal)
 {
-  ADC12CTL1&=~ADC12ISSH;
+  ADC12CTL1&=~ISSH;
   ADC12CTL1|=invertedSignal;
 }

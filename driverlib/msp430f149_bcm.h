@@ -1,9 +1,9 @@
 /*
  *@file: msp430f149_gpio.h
- *@author:13电子-Jiaxin
+ *@author:13鐢靛瓙-Jiaxin
  *@version:1.0
- *@date:2017年6月22日
- *@brif:msp430f149的Basic Clock Module模块
+ *@date:2017骞�6鏈�22鏃�
+ *@brif:msp430f149鐨凚asic Clock Module妯″潡
  */
 #ifndef __MSP430F149_BCM_H
 #define __MSP430F149_BCM_H
@@ -18,71 +18,71 @@ extern "C"
 /*Macro-------------------------------------------------------------------*/
 
 /*
- *@brif: 定义MCLK的时钟源
+ *@brif: 瀹氫箟MCLK鐨勬椂閽熸簮
  *@for functions: BCM_initMCLKSignal
  *@{
  */
-#define BCM_MCLK_SOURCE_DCOCLK              ((uint8_t)0x00)/*!<选择DCOCLK作为MCLK的时钟源*/
-#define BCM_MCLK_SOURCE_XT2CLK              ((uint8_t)0x80)/*!<选择XT2CLK作为MCLK的时钟源*/
-#define BCM_MCLK_SOURCE_LFXT1CLK            ((uint8_t)0xc0)/*!<选择LFXT1CLK作为MCLK的时钟源*/
+#define BCM_MCLK_SOURCE_DCOCLK              ((uint8_t)0x00)/*!<閫夋嫨DCOCLK浣滀负MCLK鐨勬椂閽熸簮*/
+#define BCM_MCLK_SOURCE_XT2CLK              ((uint8_t)0x80)/*!<閫夋嫨XT2CLK浣滀负MCLK鐨勬椂閽熸簮*/
+#define BCM_MCLK_SOURCE_LFXT1CLK            ((uint8_t)0xc0)/*!<閫夋嫨LFXT1CLK浣滀负MCLK鐨勬椂閽熸簮*/
 /*
  *@}
  */
  
 /*
- *@brif: 定义SMCLK的时钟源
+ *@brif: 瀹氫箟SMCLK鐨勬椂閽熸簮
  *@for functions: BCM_initSMCLKSignal
  *@{
  */
-#define BCM_SMCLK_SOURCE_DCOCLK              ((uint8_t)0x00)/*!<选择DCOCLK作为SMCLK的时钟源*/
-#define BCM_SMCLK_SOURCE_XT2CLK              ((uint8_t)0x08)/*!<选择XT2CLK作为SMCLK的时钟源*/
+#define BCM_SMCLK_SOURCE_DCOCLK              ((uint8_t)0x00)/*!<閫夋嫨DCOCLK浣滀负SMCLK鐨勬椂閽熸簮*/
+#define BCM_SMCLK_SOURCE_XT2CLK              ((uint8_t)0x08)/*!<閫夋嫨XT2CLK浣滀负SMCLK鐨勬椂閽熸簮*/
 /*
  *@}
  */
  
 /*
- *@brif: 定义时钟信号分频
+ *@brif: 瀹氫箟鏃堕挓淇″彿鍒嗛
  *@for functions: BCM_initMCLKSignal
  *                BCM_initSMCLKSignal
  *                BCM_iniACLKSignal
  *@{
  */
-#define BCM_DIVIDER_1                       ((uint8_t)0x00)/*!<选择1分频*/
-#define BCM_DIVIDER_2                       ((uint8_t)0x01)/*!<选择2分频*/
-#define BCM_DIVIDER_4                       ((uint8_t)0x02)/*!<选择3分频*/
-#define BCM_DIVIDER_8                       ((uint8_t)0x03)/*!<选择4分频*/
+#define BCM_DIVIDER_1                       ((uint8_t)0x00)/*!<閫夋嫨1鍒嗛*/
+#define BCM_DIVIDER_2                       ((uint8_t)0x01)/*!<閫夋嫨2鍒嗛*/
+#define BCM_DIVIDER_4                       ((uint8_t)0x02)/*!<閫夋嫨3鍒嗛*/
+#define BCM_DIVIDER_8                       ((uint8_t)0x03)/*!<閫夋嫨4鍒嗛*/
 /*
  *@}
  */
 
 /*
- *@brif: XT1的工作模式
+ *@brif: XT1鐨勫伐浣滄ā寮�
  *@for functions:  BCM_selectXT1Mode
  *@{
  */
-#define BCM_XT1_MODE_HIGH_FREQUENCY         ((uint8_t)0x40)/*!<选择高频模式*/
-#define BCM_XT1_MODE_LOW_FREQUENCY          ((uint8_t)0x00)/*!<选择低频模式*/
+#define BCM_XT1_MODE_HIGH_FREQUENCY         ((uint8_t)0x40)/*!<閫夋嫨楂橀妯″紡*/
+#define BCM_XT1_MODE_LOW_FREQUENCY          ((uint8_t)0x00)/*!<閫夋嫨浣庨妯″紡*/
 /*
  *@}
  */
  
 /*
- *@brif: 定义分频控制位的位偏置
+ *@brif: 瀹氫箟鍒嗛鎺у埗浣嶇殑浣嶅亸缃�
  *@{
  */
-#define BCM_OFSB_DIVM                       ((uint8_t)0x04)/*!<DIVM的位偏置*/
-#define BCM_OFSB_DIVS                       ((uint8_t)0x01)/*!<DIVS的位偏置*/
-#define BCM_OFSB_DIVA                       ((uint8_t)0x04)/*!<DIVA的位偏置*/
+#define BCM_OFSB_DIVM                       ((uint8_t)0x04)/*!<DIVM鐨勪綅鍋忕疆*/
+#define BCM_OFSB_DIVS                       ((uint8_t)0x01)/*!<DIVS鐨勪綅鍋忕疆*/
+#define BCM_OFSB_DIVA                       ((uint8_t)0x04)/*!<DIVA鐨勪綅鍋忕疆*/
 /*
  *@}
  */
 
 /*
- *@brif: 定义分频控制位的位偏置
+ *@brif: 瀹氫箟鍒嗛鎺у埗浣嶇殑浣嶅亸缃�
  *@{
  */
-#define BCM_RESISTOR_INTERNAL               ((uint8_t)0x00)/*!<选择内部电阻*/
-#define BCM_RESISTOR_EXTERNAL               ((uint8_t)0x01)/*!<选择外部电阻*/
+#define BCM_RESISTOR_INTERNAL               ((uint8_t)0x00)/*!<閫夋嫨鍐呴儴鐢甸樆*/
+#define BCM_RESISTOR_EXTERNAL               ((uint8_t)0x01)/*!<閫夋嫨澶栭儴鐢甸樆*/
 /*
  *@}
  */
@@ -90,17 +90,17 @@ extern "C"
 /*Struct------------------------------------------------------------------*/
 
 /*
- *@brif: DCO初始化结构体
- *@member resistorSelect震荡电路的电阻选取，合法参数如下
+ *@brif: DCO鍒濆鍖栫粨鏋勪綋
+ *@member resistorSelect闇囪崱鐢佃矾鐨勭數闃婚�夊彇锛屽悎娉曞弬鏁板涓�
  *  \arg  BCM_RESISTOR_INTERNAL
  *        BCM_RESISTOR_EXTERNAL
- *@member selectDCOFrequency选择DCO频率
- *  \arg  0-7整数
- *@member modulator调制器参数
- *  \arg  0-31整数
- *@member internalResistorSelect内部电阻选择
- *  \arg  0-7整数
- *@for function：BCM_initDCOCLK 
+ *@member selectDCOFrequency閫夋嫨DCO棰戠巼
+ *  \arg  0-7鏁存暟
+ *@member modulator璋冨埗鍣ㄥ弬鏁�
+ *  \arg  0-31鏁存暟
+ *@member internalResistorSelect鍐呴儴鐢甸樆閫夋嫨
+ *  \arg  0-7鏁存暟
+ *@for function锛欱CM_initDCOCLK 
  *@{
  */
 typedef struct
@@ -117,46 +117,46 @@ typedef struct
 /*Functions---------------------------------------------------------------*/
 
 /**
- *@brif:设置单片机外部时钟频率
- *@param： XT1CLK_frequency XT1时钟的时钟频率
- *@param： XT2CLK_frequency XT2时钟的时钟频率
- *@retval：None
+ *@brif:璁剧疆鍗曠墖鏈哄閮ㄦ椂閽熼鐜�
+ *@param锛� XT1CLK_frequency XT1鏃堕挓鐨勬椂閽熼鐜�
+ *@param锛� XT2CLK_frequency XT2鏃堕挓鐨勬椂閽熼鐜�
+ *@retval锛歂one
  */
 extern void BCM_setExternalClockSource(uint32_t XT1CLK_frequency,uint32_t XT2CLK_frequency);
 
 /**
- *@brif:设置MCLK的信号
- *@param： BCM_MCLK_SOURCE_x MCLK的信号源,可选以下参数
+ *@brif:璁剧疆MCLK鐨勪俊鍙�
+ *@param锛� BCM_MCLK_SOURCE_x MCLK鐨勪俊鍙锋簮,鍙�変互涓嬪弬鏁�
  *  \arg  BCM_MCLK_SOURCE_DCOCLK
  *        BCM_MCLK_SOURCE_XT2CLK
  *        BCM_MCLK_SOURCE_LFXT1CLK
- *@param： BCM_DIVIDER_x MCLK的信号分频,可选以下参数
+ *@param锛� BCM_DIVIDER_x MCLK鐨勪俊鍙峰垎棰�,鍙�変互涓嬪弬鏁�
  *  \arg  BCM_DIVIDER_1
  *        BCM_DIVIDER_2
  *        BCM_DIVIDER_4
  *        BCM_DIVIDER_8
- *@retval：None
+ *@retval锛歂one
  */
  
 extern void BCM_initMCLKSignal(uint8_t BCM_MCLK_SOURCE_x,uint8_t BCM_DIVIDER_x);
 
 /**
- *@brif:设置MSCLK的信号
- *@param： BCM_SMCLK_SOURCE_x SMCLK的信号源,可选以下参数
+ *@brif:璁剧疆MSCLK鐨勪俊鍙�
+ *@param锛� BCM_SMCLK_SOURCE_x SMCLK鐨勪俊鍙锋簮,鍙�変互涓嬪弬鏁�
  *  \arg  BCM_SMCLK_SOURCE_DCOCLK
  *        BCM_SMCLK_SOURCE_XT2CLK
- *@param： BCM_DIVIDER_x MCLK的信号分频,可选以下参数
+ *@param锛� BCM_DIVIDER_x MCLK鐨勪俊鍙峰垎棰�,鍙�変互涓嬪弬鏁�
  *  \arg  BCM_DIVIDER_1
  *        BCM_DIVIDER_2
  *        BCM_DIVIDER_4
  *        BCM_DIVIDER_8
- *@retval：None
+ *@retval锛歂one
  */
 extern void BCM_initSMCLKSignal(uint8_t BCM_SMCLK_SOURCE_x,uint8_t BCM_DIVIDER_x);
 
 /**
- *@brif:设置ACLK的信号
- *@param： BCM_DIVIDER_x ACLK的信号分频,可选以下参数
+ *@brif:璁剧疆ACLK鐨勪俊鍙�
+ *@param锛� BCM_DIVIDER_x ACLK鐨勪俊鍙峰垎棰�,鍙�変互涓嬪弬鏁�
  *  \arg  BCM_DIVIDER_1
  *        BCM_DIVIDER_2
  *        BCM_DIVIDER_4
@@ -166,54 +166,54 @@ extern void BCM_initSMCLKSignal(uint8_t BCM_SMCLK_SOURCE_x,uint8_t BCM_DIVIDER_x
 void BCM_iniACLKSignal(uint8_t BCM_DIVIDER_x);
 
 /**
- *@brif: 启动XT2振荡器,直到振荡器错误位被清零
+ *@brif: 鍚姩XT2鎸崱鍣�,鐩村埌鎸崱鍣ㄩ敊璇綅琚竻闆�
  *@param: None
  *@retval: None
  */
 extern void BCM_turnOnXT2(void);
 
 /**
- *@brif: 启动XT2振荡器,直到振荡器错误位被清零或超时
- *@param: timeout 超时时间
+ *@brif: 鍚姩XT2鎸崱鍣�,鐩村埌鎸崱鍣ㄩ敊璇綅琚竻闆舵垨瓒呮椂
+ *@param: timeout 瓒呮椂鏃堕棿
  *@retval: None
  */
 extern void BCM_turnOnXT2WithTimeout(uint32_t timeout);
 
 /**
- *@brif: 关闭XT2振荡器
+ *@brif: 鍏抽棴XT2鎸崱鍣�
  *@param: None
  *@retval: None
  */
 extern void BCM_turnOffXT2(void);
 
 /**
- *@brif: 获取MCLK的频率
- *       由于对于MSP430F149内部震荡电路性能不稳定
- *       故如果使用DCOCLK返回0
+ *@brif: 鑾峰彇MCLK鐨勯鐜�
+ *       鐢变簬瀵逛簬MSP430F149鍐呴儴闇囪崱鐢佃矾鎬ц兘涓嶇ǔ瀹�
+ *       鏁呭鏋滀娇鐢―COCLK杩斿洖0
  *@param: None
- *@retval: MCLK的频率
+ *@retval: MCLK鐨勯鐜�
  */
 extern uint32_t BCM_getMCLK(void);
 
 /**
- *@brif: 获取SMCLK的频率
- *       由于对于MSP430F149内部震荡电路性能不稳定
- *       故如果使用DCOCLK返回0
+ *@brif: 鑾峰彇SMCLK鐨勯鐜�
+ *       鐢变簬瀵逛簬MSP430F149鍐呴儴闇囪崱鐢佃矾鎬ц兘涓嶇ǔ瀹�
+ *       鏁呭鏋滀娇鐢―COCLK杩斿洖0
  *@param: None
- *@retval: SMCLK的频率
+ *@retval: SMCLK鐨勯鐜�
  */
 extern uint32_t BCM_getSMCLK(void);
 
 /**
- *@brif: 获取ACLK的频率
+ *@brif: 鑾峰彇ACLK鐨勯鐜�
  *@param: None
- *@retval: ACLK的频率
+ *@retval: ACLK鐨勯鐜�
  */
 extern uint32_t BCM_getACLK(void);
 
 /**
- *@brif: 选择XT1时钟源的工作模式
- *@param: BCM_XT1_MODE_x_FREQUENCY XT1时钟源的工作模式,可选一下参数
+ *@brif: 閫夋嫨XT1鏃堕挓婧愮殑宸ヤ綔妯″紡
+ *@param: BCM_XT1_MODE_x_FREQUENCY XT1鏃堕挓婧愮殑宸ヤ綔妯″紡,鍙�変竴涓嬪弬鏁�
  *  \arg BCM_XT1_MODE_HIGH_FREQUENCY
  *       BCM_XT1_MODE_LOW_FREQUENCY
  *@retval: None
@@ -221,36 +221,36 @@ extern uint32_t BCM_getACLK(void);
 extern void BCM_selectXT1Mode(uint8_t BCM_XT1_MODE_x_FREQUENCY);
 
 /**
- *@brif: 初始化DOCCLK模块
- *@param: BCM_initDCOParam DCOCLK模块的初始化参数
- *  \arg  BCM_initDCOTypedef类型的参数
+ *@brif: 鍒濆鍖朌OCCLK妯″潡
+ *@param: BCM_initDCOParam DCOCLK妯″潡鐨勫垵濮嬪寲鍙傛暟
+ *  \arg  BCM_initDCOTypedef绫诲瀷鐨勫弬鏁�
  *@retval: None
  */
 extern void BCM_initDCOCLK(BCM_initDCOTypedef BCM_initDCOParam);
 
 /**
- *@brif: 尝试清除振荡器错误中断的中断标志位，直到超时
- *@param: timeout超时时间
- *@retval: OFIFG中断标志位的状态
+ *@brif: 灏濊瘯娓呴櫎鎸崱鍣ㄩ敊璇腑鏂殑涓柇鏍囧織浣嶏紝鐩村埌瓒呮椂
+ *@param: timeout瓒呮椂鏃堕棿
+ *@retval: OFIFG涓柇鏍囧織浣嶇殑鐘舵��
  */
 extern uint8_t BCM_clearOscFaultFlagsWithTimeout(uint8_t timeout);
 
 /**
- *@brif: 获得振荡器错误中断标志的状态
+ *@brif: 鑾峰緱鎸崱鍣ㄩ敊璇腑鏂爣蹇楃殑鐘舵��
  *@param: None
- *@retval: OFIFG中断标志位的状态
+ *@retval: OFIFG涓柇鏍囧織浣嶇殑鐘舵��
  */
 extern uint8_t BCM_getOscFaultFlagStatus(void);
 
 /**
- *@brif: 允许振荡器错误中断
+ *@brif: 鍏佽鎸崱鍣ㄩ敊璇腑鏂�
  *@param: None
  *@retval: None
  */
 extern void BCM_enableOscFaultInterrupt(void);
 
 /**
- *@brif: 禁止振荡器错误中断
+ *@brif: 绂佹鎸崱鍣ㄩ敊璇腑鏂�
  *@param: None
  *@retval: None
  */

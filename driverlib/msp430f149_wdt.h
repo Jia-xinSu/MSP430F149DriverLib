@@ -1,9 +1,9 @@
 /*
  *@file: msp430f149_wdt.h
- *@author:13电子-Jiaxin
+ *@author:13鐢靛瓙-Jiaxin
  *@version:1.0
- *@date:2017年6月22日
- *@brif:msp430f149的Watch Dog Timer模块
+ *@date:2017骞�6鏈�22鏃�
+ *@brif:msp430f149鐨刉atch Dog Timer妯″潡
  */
 #ifndef __MSP430f149_WDT_H
 #define __MSP430f149_WDT_H
@@ -18,27 +18,27 @@ extern "C"
 /*Macro-------------------------------------------------------------------*/
 
 /*
- *@brif: 定义WDT的时钟源
+ *@brif: 瀹氫箟WDT鐨勬椂閽熸簮
  *@functions:  WDT_initAsIntervalTimer
  *             WDT_initAsWatchDogTimer
  *@{
  */
-#define WDT_SOURCE_ACLK                   ((uint16_t)0x0004) /*!<选择ACLK作为时钟源*/
-#define WDT_SOURCE_SMCLK                  ((uint16_t)0x0000) /*!<选择SMCLK作为时钟源*/
+#define WDT_SOURCE_ACLK                   ((uint16_t)0x0004) /*!<閫夋嫨ACLK浣滀负鏃堕挓婧�*/
+#define WDT_SOURCE_SMCLK                  ((uint16_t)0x0000) /*!<閫夋嫨SMCLK浣滀负鏃堕挓婧�*/
 /*
  *@}
  */
 
 /*
- *@brif: 定义WDT的时钟源
+ *@brif: 瀹氫箟WDT鐨勬椂閽熸簮
  *@functions:  WDT_initAsIntervalTimer
  *             WDT_initAsWatchDogTimer
  *@{
  */
-#define WDT_CLOCKDIVIDER_32768            ((uint16_t)0x0000) /*!<时钟源分频/32768*/
-#define WDT_CLOCKDIVIDER_8192             ((uint16_t)0x0001) /*!<时钟源分频/8192*/
-#define WDT_CLOCKDIVIDER_512              ((uint16_t)0x0002) /*!<时钟源分频/512*/
-#define WDT_CLOCKDIVIDER_64               ((uint16_t)0x0003) /*!<时钟源分频/64*/
+#define WDT_CLOCKDIVIDER_32768            ((uint16_t)0x0000) /*!<鏃堕挓婧愬垎棰�/32768*/
+#define WDT_CLOCKDIVIDER_8192             ((uint16_t)0x0001) /*!<鏃堕挓婧愬垎棰�/8192*/
+#define WDT_CLOCKDIVIDER_512              ((uint16_t)0x0002) /*!<鏃堕挓婧愬垎棰�/512*/
+#define WDT_CLOCKDIVIDER_64               ((uint16_t)0x0003) /*!<鏃堕挓婧愬垎棰�/64*/
 /*
  *@}
  */
@@ -46,7 +46,7 @@ extern "C"
 /*Enumeration-------------------------------------------------------------*/
 
 /*
- *@brif: 定义WatchDog Timer的中断模式
+ *@brif: 瀹氫箟WatchDog Timer鐨勪腑鏂ā寮�
  *@functions:  WDT_enableInterrupt
  *             WDT_disableInterrupt
  *             WDT_clearInterrupt
@@ -63,30 +63,30 @@ typedef enum{
 /*Functions---------------------------------------------------------------*/
 
 /*
- *@brif: 看门狗定时器保持，停止定时
+ *@brif: 鐪嬮棬鐙楀畾鏃跺櫒淇濇寔锛屽仠姝㈠畾鏃�
  *@param: None
  *@retval: None
  */
 extern void WDT_hold(void);
 
 /*
- *@brif: 启动看门狗定时器
+ *@brif: 鍚姩鐪嬮棬鐙楀畾鏃跺櫒
  *@param: None
  *@retval: None
  */
 extern void WDT_start(void);
 
 /*
- *@brif: 允许看门狗定时器中断
- *@param: WDT_X_INTERRUPT_MODE 模式，允许使用下面输入参数
+ *@brif: 鍏佽鐪嬮棬鐙楀畾鏃跺櫒涓柇
+ *@param: WDT_X_INTERRUPT_MODE 妯″紡锛屽厑璁镐娇鐢ㄤ笅闈㈣緭鍏ュ弬鏁�
  *  /arg  WDT_NMI_INTERRUPT_MODE
  *        WDT_INTERVAL_INTERRUPT_MODE
  *@retval: None
  */
 extern void WDT_enableInterrupt(WDT_interruptMode WDT_X_INTERRUPT_MODE);
 /*
- *@brif: 禁止看门狗定时器中断
- *@param: WDT_X_INTERRUPT_MODE 工作模式，允许使用下面输入参数
+ *@brif: 绂佹鐪嬮棬鐙楀畾鏃跺櫒涓柇
+ *@param: WDT_X_INTERRUPT_MODE 宸ヤ綔妯″紡锛屽厑璁镐娇鐢ㄤ笅闈㈣緭鍏ュ弬鏁�
  *  /arg  WDT_NMI_INTERRUPT_MODE
  *        WDT_INTERVAL_INTERRUPT_MODE
  *@retval: None
@@ -94,8 +94,8 @@ extern void WDT_enableInterrupt(WDT_interruptMode WDT_X_INTERRUPT_MODE);
 extern void WDT_disableInterrupt(WDT_interruptMode WDT_X_INTERRUPT_MODE);
 
 /*
- *@brif: 清除看门狗中断标识位
- *@param: WDT_X_INTERRUPT_MODE 工作模式，允许使用下面输入参数
+ *@brif: 娓呴櫎鐪嬮棬鐙椾腑鏂爣璇嗕綅
+ *@param: WDT_X_INTERRUPT_MODE 宸ヤ綔妯″紡锛屽厑璁镐娇鐢ㄤ笅闈㈣緭鍏ュ弬鏁�
  *  /arg  WDT_NMI_INTERRUPT_MODE
  *        WDT_INTERVAL_INTERRUPT_MODE
  *@retval: None
@@ -103,18 +103,18 @@ extern void WDT_disableInterrupt(WDT_interruptMode WDT_X_INTERRUPT_MODE);
 extern void WDT_clearInterrupt(WDT_interruptMode WDT_X_INTERRUPT_MODE);
 
 /*
- *@brif: 看门狗计数器清零
+ *@brif: 鐪嬮棬鐙楄鏁板櫒娓呴浂
  *@param: None
  *@retval: None
  */
 extern void WDT_resetTimer(void);
 
 /*
- *@brif: 看门狗定时器初始化为interval timer定时器模式
- *@param: WDT_SOURCE_x 选择时钟源
+ *@brif: 鐪嬮棬鐙楀畾鏃跺櫒鍒濆鍖栦负interval timer瀹氭椂鍣ㄦā寮�
+ *@param: WDT_SOURCE_x 閫夋嫨鏃堕挓婧�
  *  /arg  WDT_SOURCE_ACLK
  *        WDT_SOURCE_SMCLK
- *@param: WDT_CLOCKDIVIDER_x 时钟源分频
+ *@param: WDT_CLOCKDIVIDER_x 鏃堕挓婧愬垎棰�
  *  /arg  WDT_CLOCKDIVIDER_32768
  *        WDT_CLOCKDIVIDER_8192
  *        WDT_CLOCKDIVIDER_512
@@ -124,11 +124,11 @@ extern void WDT_resetTimer(void);
 extern void WDT_initAsIntervalTimer(uint16_t WDT_SOURCE_x,uint16_t WDT_CLOCKDIVIDER_x);
 
 /*
- *@brif: 看门狗定时器初始化为WatchDog Timer模式
- *@param: WDT_SOURCE_x 选择时钟源
+ *@brif: 鐪嬮棬鐙楀畾鏃跺櫒鍒濆鍖栦负WatchDog Timer妯″紡
+ *@param: WDT_SOURCE_x 閫夋嫨鏃堕挓婧�
  *  /arg  WDT_SOURCE_ACLK
  *        WDT_SOURCE_SMCLK
- *@param: WDT_CLOCKDIVIDER_x 时钟源分频
+ *@param: WDT_CLOCKDIVIDER_x 鏃堕挓婧愬垎棰�
  *  /arg  WDT_CLOCKDIVIDER_32768
  *        WDT_CLOCKDIVIDER_8192
  *        WDT_CLOCKDIVIDER_512
