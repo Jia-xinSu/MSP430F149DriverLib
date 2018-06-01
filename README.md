@@ -35,5 +35,5 @@ msp430f149_uasrt_spi.h</br>
 [hw_memmap.h](/driverlib/inc/hw_memmap.h)</br>
 
 ## 使用说明
-配置说明见[配置](docs/config)</br>
-详细API文档见[目录](docs/index)
+配置说明见[配置](docs/config.md)</br>
+详细API文档见[目录](docs/index,md)
