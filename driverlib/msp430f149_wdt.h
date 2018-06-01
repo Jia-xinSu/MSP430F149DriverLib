@@ -3,7 +3,7 @@
  *@author:13鐢靛瓙-Jiaxin
  *@version:1.0
  *@date:2017骞�6鏈�22鏃�
- *@brif:msp430f149鐨刉atch Dog Timer妯″潡
+ *@brif:msp430f149atch Dog Timer妯″潡
  */
 #ifndef __MSP430f149_WDT_H
 #define __MSP430f149_WDT_H

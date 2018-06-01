@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.1.LTS/include/*",
+                    "C:/ti/ccsv8/ccs_base/msp430/include/*"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "${workspaceFolder}",
+                "${workspaceFolder}/driverlib/inc",
+                "${workspaceFolder}/driverlib/",
+                "C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.1.LTS/include",
+                "C:/ti/ccsv8/ccs_base/msp430/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "__TI_COMPILER_VERSION__",
+                "__MSP430F149__",
+                "__MSP430__"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}

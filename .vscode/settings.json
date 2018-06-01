@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "msp430f149_adc12.h": "c",
+        "hw_memmap.h": "c",
+        "msp430f149_bcm.h": "c",
+        "stdint.h": "c",
+        "stdbool.h": "c",
+        "msp430.h": "c",
+        "msp430f149.h": "c"
+    },
+}

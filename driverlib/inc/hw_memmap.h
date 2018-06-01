@@ -8,6 +8,7 @@
 // Include device specific header file
 //
 //*****************************************************************************
+
 #include "msp430f149.h"
 
 #include "stdint.h"
